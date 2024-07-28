@@ -21,7 +21,7 @@ public class LanguageDropdownTest {
 
     @BeforeTest
     public void setExcelDataExtractorSetup() throws IOException {
-        excelDataExtractor = new ExcelDataExtractor("C:\\Users\\kzlot\\Documents\\testData.xlsx", "Sheet1", "Test name");
+        excelDataExtractor = new ExcelDataExtractor("C:\\Users\\kzlot\\IdeaProjects\\fast-track-atqc-java\\task3\\src\\test\\resources\\testData.xlsx", "Sheet1", "Test name");
     }
 
     @BeforeMethod
