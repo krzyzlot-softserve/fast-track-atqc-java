@@ -1,7 +1,6 @@
-import org.openqa.selenium.By;
+import io.qameta.allure.*;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
@@ -35,22 +34,37 @@ public class LanguageDropdownTest {
     }
 
     @Test
-    public void dropdownTest() throws IOException {
+    @Feature("Changing language")
+    @Description("Changing language to english with upper-right dropdown")
+    @Owner("Kzlot")
+    @Severity(SeverityLevel.NORMAL)
+    @Link(name = "Website", url = "https://oos.dmytrominochkin.cloud/#/")
+    public void languageChangeTest() throws IOException {
         driver.get("https://oos.dmytrominochkin.cloud/#/");
 
         mainPage.changeLanguage();
+        Allure.step("Changed language to english with dropdown");
 
-        Assert.assertEquals(excelDataExtractor.getData("dropdownTest").getFirst(), mainPage.getDropdownLanguageSelectionText());
+        Assert.assertEquals(excelDataExtractor.getData("languageChangeTest").getFirst(), mainPage.getDropdownLanguageSelectionText());
+        Allure.step("Verified language change");
     }
 
     @Test
-    public void dropdownTestModified() throws IOException {
+    @Feature("Changing language")
+    @Description("Changing language to english with upper-right dropdown, modified version")
+    @Owner("Kzlot")
+    @Severity(SeverityLevel.NORMAL)
+    @Link(name = "Website", url = "https://oos.dmytrominochkin.cloud/#/")
+    public void languageChangeTestWithFirstHeader() throws IOException {
         driver.get("https://oos.dmytrominochkin.cloud/#/");
 
         mainPage.changeLanguage();
+        Allure.step("Changed language to english with dropdown");
         mainPage.selectLocation();
+        Allure.step("Selected location");
 
-        Assert.assertEquals(excelDataExtractor.getData("dropdownTestModified").getFirst(), mainPage.getSectionText());
+        Assert.assertEquals(excelDataExtractor.getData("languageChangeTestWithFirstHeader").getFirst(), mainPage.getSectionText());
+        Allure.step("Verified language change");
     }
 
     @AfterMethod
